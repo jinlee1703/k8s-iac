@@ -14,5 +14,7 @@ module "prod" {
   api_desired_size      = var.api["desired_size"]
   api_max_size          = var.api["max_size"]
   api_min_size          = var.api["min_size"]
-  api_instance_types    = var.api["instance_types"]
+  api_instance_type     = var.api["instance_type"]
+  api_ami_id            = var.api["ami_id"]
+  api_key_name          = var.api["key_name"]
 }

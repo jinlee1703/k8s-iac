@@ -50,7 +50,17 @@ variable "api_min_size" {
   type        = number
 }
 
-variable "api_instance_types" {
-  description = "API 서버 노드 그룹에 사용할 EC2 인스턴스 유형 목록"
-  type        = list(string)
+variable "api_instance_type" {
+  description = "API 서버 노드 그룹에 사용할 EC2 인스턴스 유형"
+  type        = string
+}
+
+variable "api_ami_id" {
+  description = "API 서버 노드 그룹에 사용할 AMI ID"
+  type        = string
+}
+
+variable "api_key_name" {
+  description = "API 서버 노드 그룹에 사용할 키페어 이름"
+  type        = string
 }

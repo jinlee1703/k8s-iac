@@ -37,9 +37,11 @@ variable "bastion" {
 variable "api" {
   description = "API 서버 설정"
   type = object({
-    desired_size   = number
-    max_size       = number
-    min_size       = number
-    instance_types = list(string)
+    desired_size  = number
+    max_size      = number
+    min_size      = number
+    instance_type = string
+    ami_id        = string
+    key_name      = string
   })
 }
