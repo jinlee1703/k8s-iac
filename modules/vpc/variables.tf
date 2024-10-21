@@ -13,3 +13,9 @@ variable "cidr_block" {
   description = "VPC CIDR 블록"
   type        = string
 }
+
+variable "availability_zones" {
+  description = "서브넷을 생성할 가용 영역"
+  type        = list(string)
+  default     = ["ap-northeast-2a", "ap-northeast-2c"]
+}
