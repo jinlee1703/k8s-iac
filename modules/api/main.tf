@@ -84,3 +84,29 @@ resource "aws_iam_role_policy_attachment" "eks_node_group_AmazonEC2ContainerRegi
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.eks_node_group.name
 }
+
+resource "aws_security_group" "api" {
+  name        = "${var.prefix}-api-sg"
+  description = "API 서버용 보안 그룹"
+  vpc_id      = var.vpc_id
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = merge(var.common_tags, {
+    Name = "${var.prefix}-api-sg"
+  })
+}
+
+resource "aws_security_group_rule" "api_ingress" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  security_group_id = aws_security_group.api.id
+  cidr_blocks       = ["0.0.0.0/0"]
+}

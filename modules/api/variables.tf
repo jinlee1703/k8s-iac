@@ -27,3 +27,13 @@ variable "instance_types" {
   description = "노드 그룹에 사용할 EC2 인스턴스 유형 목록"
   type        = list(string)
 }
+
+variable "vpc_id" {
+  description = "EKS 클러스터를 생성할 VPC ID"
+  type        = string
+}
+
+variable "common_tags" {
+  description = "리소스에 적용할 공통 태그 목록"
+  type        = map(string)
+}
