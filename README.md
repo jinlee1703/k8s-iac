@@ -14,4 +14,18 @@
 
 ### Build & Run
 
-...
+#### 1. `backend.hcl` 생성 (예시)
+
+```hcl
+bucket         = "k8s-tfstate"
+key            = "terraform.tfstate"
+region         = "ap-northeast-2"
+dynamodb_table = "k8s-tfstate-lock"
+encrypt        = true
+```
+
+#### 2. 프로젝트 시작
+
+```bash
+terraform init -backend-config=backend.hcl
+```
