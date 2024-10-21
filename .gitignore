@@ -1,2 +1,9 @@
 ### Node ###
 node_modules/
+
+### Terrafomr ###
+.terraform
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
