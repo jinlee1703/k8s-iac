@@ -19,3 +19,18 @@ variable "vpc_cidr_block" {
   description = "VPC CIDR 블록"
   type        = string
 }
+
+variable "bastion_ami_id" {
+  description = "Bastion 호스트에 사용할 AMI ID"
+  type        = string
+}
+
+variable "bastion_instance_type" {
+  description = "Bastion 호스트 인스턴스 타입"
+  type        = string
+}
+
+variable "bastion_key_name" {
+  description = "Bastion 호스트에 사용할 키페어 이름"
+  type        = string
+}
