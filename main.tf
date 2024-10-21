@@ -17,4 +17,8 @@ module "prod" {
   api_instance_type     = var.api["instance_type"]
   api_ami_id            = var.api["ami_id"]
   api_key_name          = var.api["key_name"]
+  db_name               = var.db["name"]
+  db_username           = var.db["username"]
+  db_password           = var.db["password"]
+  db_root_password      = var.db["root_password"]
 }

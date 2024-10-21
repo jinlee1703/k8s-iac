@@ -39,3 +39,12 @@ module "api" {
   vpc_id        = module.vpc.vpc_id
   common_tags   = local.common_tags
 }
+
+module "db" {
+  source           = "../../modules/db"
+  prefix           = local.prefix
+  db_name          = var.db_name
+  db_password      = var.db_password
+  db_username      = var.db_username
+  db_root_password = var.db_root_password
+}
