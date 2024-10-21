@@ -27,13 +27,15 @@ module "bastion" {
 }
 
 module "api" {
-  source         = "../../modules/api"
-  prefix         = local.prefix
-  subnet_ids     = module.vpc.private_subnet_ids
-  desired_size   = var.api_desired_size
-  max_size       = var.api_max_size
-  min_size       = var.api_min_size
-  instance_types = var.api_instance_types
-  vpc_id         = module.vpc.vpc_id
-  common_tags    = local.common_tags
+  source        = "../../modules/api"
+  prefix        = local.prefix
+  subnet_ids    = module.vpc.private_subnet_ids
+  desired_size  = var.api_desired_size
+  max_size      = var.api_max_size
+  min_size      = var.api_min_size
+  instance_type = var.api_instance_type
+  ami_id        = var.api_ami_id
+  key_name      = var.api_key_name
+  vpc_id        = module.vpc.vpc_id
+  common_tags   = local.common_tags
 }

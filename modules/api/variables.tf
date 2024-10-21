@@ -23,9 +23,9 @@ variable "min_size" {
   type        = number
 }
 
-variable "instance_types" {
+variable "instance_type" {
   description = "노드 그룹에 사용할 EC2 인스턴스 유형 목록"
-  type        = list(string)
+  type        = string
 }
 
 variable "vpc_id" {
@@ -36,4 +36,14 @@ variable "vpc_id" {
 variable "common_tags" {
   description = "리소스에 적용할 공통 태그 목록"
   type        = map(string)
+}
+
+variable "ami_id" {
+  description = "노드 그룹에 사용할 AMI ID"
+  type        = string
+}
+
+variable "key_name" {
+  description = "노드 그룹에 사용할 키페어 이름"
+  type        = string
 }
