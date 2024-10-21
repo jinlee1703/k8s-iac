@@ -24,3 +24,12 @@ variable "vpc_cidr_blocks" {
   description = "VPC CIDR 블록"
   type        = map(string)
 }
+
+variable "bastion" {
+  description = "Bastion 호스트 설정"
+  type = object({
+    ami_id        = string
+    instance_type = string
+    key_name      = string
+  })
+}
