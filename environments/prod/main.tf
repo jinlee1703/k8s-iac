@@ -25,3 +25,15 @@ module "bastion" {
   subnet_id     = module.vpc.public_subnet_ids[0]
   prefix        = local.prefix
 }
+
+module "api" {
+  source         = "../../modules/api"
+  prefix         = local.prefix
+  subnet_ids     = module.vpc.private_subnet_ids
+  desired_size   = var.api_desired_size
+  max_size       = var.api_max_size
+  min_size       = var.api_min_size
+  instance_types = var.api_instance_types
+  vpc_id         = module.vpc.vpc_id
+  common_tags    = local.common_tags
+}

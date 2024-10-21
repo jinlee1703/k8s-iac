@@ -11,4 +11,8 @@ module "prod" {
   bastion_ami_id        = var.bastion["ami_id"]
   bastion_instance_type = var.bastion["instance_type"]
   bastion_key_name      = var.bastion["key_name"]
+  api_desired_size      = var.api["desired_size"]
+  api_max_size          = var.api["max_size"]
+  api_min_size          = var.api["min_size"]
+  api_instance_types    = var.api["instance_types"]
 }
