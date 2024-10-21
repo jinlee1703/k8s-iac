@@ -34,3 +34,23 @@ variable "bastion_key_name" {
   description = "Bastion 호스트에 사용할 키페어 이름"
   type        = string
 }
+
+variable "api_desired_size" {
+  description = "API 서버 노드 그룹의 원하는 크기"
+  type        = number
+}
+
+variable "api_max_size" {
+  description = "API 서버 노드 그룹의 최대 크기"
+  type        = number
+}
+
+variable "api_min_size" {
+  description = "API 서버 노드 그룹의 최소 크기"
+  type        = number
+}
+
+variable "api_instance_types" {
+  description = "API 서버 노드 그룹에 사용할 EC2 인스턴스 유형 목록"
+  type        = list(string)
+}
