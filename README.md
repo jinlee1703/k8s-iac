@@ -5,12 +5,39 @@
 ## Tech Stack
 
 - Terraform 1.0.0+
-- AWS (VPC, EKS, EC2, RDS 등)
+- AWS (VPC, EC2 등)
 - Kubernetes
 
 ## Architecture
 
-...
+```gherkin
++------------------------------------------------------+
+|                      AWS Cloud                       |
+|                                                      |
+|  +------------------------+     +------------------+ |
+|  |         VPC            |     |     S3 Bucket    | |
+|  |                        |     | (Terraform State)| |
+|  |  +------------------+  |     +------------------+ |
+|  |  |     Subnets      |  |                          |
+|  |  |                  |  |                          |
+|  |  | +----+  +----+   |  |                          |
+|  |  | | EC2|  | EC2|   |  |                          |
+|  |  | +----+  +----+   |  |                          |
+|  |  +------------------+  |                          |
+|  |                        |                          |
+|  |  +------------------+  |                          |
+|  |  |     EKS Cluster  |  |                          |
+|  |  |                  |  |                          |
+|  |  |  +------------+  |  |                          |
+|  |  |  |   Worker   |  |  |                          |
+|  |  |  |   Nodes    |  |  |                          |
+|  |  |  +------------+  |  |                          |
+|  |  +------------------+  |                          |
+|  |                        |                          |
+|  +------------------------+                          |
+|                                                      |
++------------------------------------------------------+
+```
 
 ### 환경 간 의존성
 
@@ -22,14 +49,14 @@
 ```plaintext
 .
 ├── modules/
-│   ├── networking/
-│   ├── security/
-│   ├── compute/
-│   └── database/
+│ ├── networking/
+│ ├── security/
+│ ├── compute/
+│ └── database/
 ├── environments/
-│   ├── dev/
-│   ├── staging/
-│   └── prod/
+│ ├── dev/
+│ ├── staging/
+│ └── prod/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
@@ -40,9 +67,9 @@
 - `environments/`: 각 환경별 설정을 포함
 - `./(root)`: 전체 프로젝트 관리
 
-## Build & Run
+## 시작하기
 
-### 1. `backend.hcl` 생성 (예시)
+### 1. `backend.hcl` 파일 생성
 
 ```hcl
 bucket         = "k8s-tfstate"
@@ -52,8 +79,20 @@ dynamodb_table = "k8s-tfstate-lock"
 encrypt        = true
 ```
 
-### 2. 프로젝트 시작
+### 2. 프로젝트 초기화
 
 ```bash
 terraform init -backend-config=backend.hcl
+```
+
+### 3. 인프라 계획 확인
+
+```bash
+terraform plan
+```
+
+### 4. 인프라 적용
+
+```bash
+terraform apply
 ```
