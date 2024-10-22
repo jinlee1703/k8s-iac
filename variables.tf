@@ -45,3 +45,13 @@ variable "api" {
     key_name      = string
   })
 }
+
+variable "db" {
+  description = "데이터베이스 설정"
+  type = object({
+    name          = string
+    username      = string
+    password      = string
+    root_password = string
+  })
+}

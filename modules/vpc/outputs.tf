@@ -12,3 +12,8 @@ output "private_subnet_ids" {
   description = "생성된 Private 서브넷 ID 목록"
   value       = aws_subnet.app[*].id
 }
+
+output "db_subnet_ids" {
+  description = "생성된 DB 서브넷 ID 목록"
+  value       = aws_subnet.data[*].id
+}

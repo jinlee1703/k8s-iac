@@ -64,3 +64,23 @@ variable "api_key_name" {
   description = "API 서버 노드 그룹에 사용할 키페어 이름"
   type        = string
 }
+
+variable "db_name" {
+  description = "데이터베이스 이름"
+  type        = string
+}
+
+variable "db_username" {
+  description = "데이터베이스 사용자 이름"
+  type        = string
+}
+
+variable "db_password" {
+  description = "데이터베이스 사용자 비밀번호"
+  type        = string
+}
+
+variable "db_root_password" {
+  description = "데이터베이스 root 사용자 비밀번호"
+  type        = string
+}
