@@ -42,7 +42,7 @@
 
 ## Build & Run
 
-### 1. `backend.hcl` 생성 (예시)
+### 1. `backend.hcl` 파일 생성
 
 ```hcl
 bucket         = "k8s-tfstate"
@@ -52,8 +52,20 @@ dynamodb_table = "k8s-tfstate-lock"
 encrypt        = true
 ```
 
-### 2. 프로젝트 시작
+### 2. 프로젝트 초기화
 
 ```bash
 terraform init -backend-config=backend.hcl
+```
+
+### 3. 인프라 계획 확인
+
+```bash
+terraform plan
+```
+
+### 4. 인프라 적용
+
+```bash
+terraform apply
 ```
