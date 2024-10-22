@@ -22,14 +22,14 @@
 ```plaintext
 .
 ├── modules/
-│   ├── networking/
-│   ├── security/
-│   ├── compute/
-│   └── database/
+│ ├── networking/
+│ ├── security/
+│ ├── compute/
+│ └── database/
 ├── environments/
-│   ├── dev/
-│   ├── staging/
-│   └── prod/
+│ ├── dev/
+│ ├── staging/
+│ └── prod/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
